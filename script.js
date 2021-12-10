@@ -1,11 +1,11 @@
 const audioCtx = new AudioContext();
-const playRandomBtn = document.querySelector('.random-chord');
+const playRandomBtn = document.querySelector('.random-chord-btn');
+const replayBtn = document.querySelector('.replay-btn');
 const optionBoxes = [...document.querySelectorAll('.chord-option')];
+const keyDropdown = document.querySelector('#key');
 const chordBtns = [...document.querySelectorAll('.answer-buttons button')];
-console.log(chordBtns);
 let currentAnswer;
 const feedbackText = document.querySelector('.feedback');
-const modeShowBtn = document.querySelector('#mode');
 
 function loadChoices() {
     const choices = optionBoxes.filter(box => box.checked);
@@ -13,13 +13,12 @@ function loadChoices() {
         alert(`Please select at least one option`);
         return;
     }
-    console.log(choices);
     return choices;
 }
 
+//TODO: either edit this choice, or use 'humanRandom'
 function pickRandomChoice(choices) {
-    const randomIndex = Math.floor(Math.random() * (choices.length + 1));
-    console.log(randomIndex);
+    const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
 
@@ -29,25 +28,14 @@ function processRandomChoice(choice) {
     return splitInfo;
 }
 
-function getResolvedStatus() {
-    const resolvedBox = document.querySelector('#resolved');
-    return resolvedBox.checked;
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - 1)) + min;
 }
 
-function findAudioFile(info, resolved) {
-    const [mode, chord] = info;
-    if (modeShowBtn.checked) {
-        feedback(mode);
-        let displayTimer = setTimeout(() => {
-            let para = feedbackText.firstChild;
-            feedbackText.removeChild(para);
-            clearTimeout(displayTimer);
-        }, 1000);
-    }
-    const chordInfoSplit = chord.split('/');
-    const tonic = chordInfoSplit[1];
-    const filePath = `audio/${resolved ? 'resolved' : 'alone'}/${mode}/${tonic}.mp3`;
-    return filePath;
+function randomKey() {
+    const keys = ['A', 'Ab', 'B', 'Bb', 'C', 'Db', 'D', 'E', 'Eb', 'F', 'Gb', 'G'];
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    return keys[randomIndex];
 }
 
 async function getFile(audioContext, filepath) {
@@ -69,28 +57,17 @@ function playSample(sample) {
     sampleSource.start();
 }
 
-function playRandomAudio() {
-    const choices = loadChoices();
-    const choice = pickRandomChoice(choices);
-    const info = processRandomChoice(choice);
-    currentAnswer = info.join('-');
-    const resolved = getResolvedStatus();
-    const audioFile = findAudioFile(info, resolved);
-    console.log(audioFile);
-    setupSample(audioFile).then((sample) => {
+function playAudioFiles() {
+    setupSample(currentAnswer.tonicizingProgFile).then((sample) => {
         playSample(sample);
     });
-}
-
-function formatButtonInfo(btn, parent) {
-    const btnInfo = btn.classList[0];
-    const formatted1 = btnInfo.replace('of', '/');
-
-    const parentClassList = parent.classList[0];
-    const array = parentClassList.split('-');
-    const mode = array[0];
-
-    return `${mode}-V7${formatted1}`;
+    const timer = setTimeout(() => {
+        setupSample(currentAnswer.chordFile).then((sample) => {
+            playSample(sample);
+        });
+        clearTimeout(timer);
+    }, 5500);
+    
 }
 
 function feedback(msg) {
@@ -102,9 +79,9 @@ function feedback(msg) {
 
 function processGuess(evt) {
     const btn = evt.currentTarget;
-    const parent = btn.parentElement;
-    const formatted = formatButtonInfo(btn, parent);
-    const msg = (formatted === currentAnswer) ? `Correct!` : `Nope... try again.`;
+    const [mode, chord] = btn.classList[0].split('-');
+    console.log({mode, chord});
+    const msg = (mode === currentAnswer.mode && chord === currentAnswer.chord) ? `Correct!` : `Nope... try again.`;
     feedback(msg);
     let displayTimer = setTimeout(() => {
         let para = feedbackText.firstChild;
@@ -113,7 +90,30 @@ function processGuess(evt) {
     }, 2000);
 }
 
-playRandomBtn.addEventListener('click', playRandomAudio);
+function handleRandomChordBtnClick() {
+    const choices = loadChoices();
+    const choice = pickRandomChoice(choices);
+    const key = keyDropdown.value === 'random' ? randomKey() : keyDropdown.value;
+    const [mode, chord] = processRandomChoice(choice);
+    const voicing = randomInt(1, 6);
+    const tonicizingProgFile = `audio/tonicizing_progs/${mode}/tonicizing_prog_${key}.mp3`;
+    const chordFile = `audio/individual_harmonies/${mode}/${chord}/${chord}(arr${voicing})_${key}.mp3`;
 
+    currentAnswer = {
+        choice,
+        key,
+        mode,
+        chord,
+        voicing,
+        tonicizingProgFile,
+        chordFile
+    };
+
+    console.log(currentAnswer);
+    playAudioFiles();
+}
+
+playRandomBtn.addEventListener('click', handleRandomChordBtnClick);
+replayBtn.addEventListener('click', playAudioFiles);
 chordBtns.forEach(btn => btn.addEventListener('click', processGuess));
 

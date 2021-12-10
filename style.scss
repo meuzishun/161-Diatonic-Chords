@@ -2,106 +2,220 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
-html {
-    font-size: 16px;
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(227, 230, 238);
 
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        
-        .wrapper {
-            width: 900px;
-            margin: 0 auto;
-            
-            header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 3rem;
-                gap: 2rem;
-                
-                h1 {
-                    font-size: 3rem;
-                }
-                
-                p {
-                    font-size: 1.3rem;
-                }
+    header {
+        width: 50%;
+
+        // h1 {}
+
+        // p {}
+    }
+
+    main {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .questions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            h2 {
+                font-size: 2rem;
             }
-            
-            main {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .questions {
-                    width: 90%;
-                    margin: 0 auto;
+
+            .settings {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, auto);
+                grid-column-gap: 4rem;
+                grid-row-gap: 2rem;
+
+                h3 {
+                    font-size: 1.8rem;
+                    font-weight: normal;
+                    text-decoration: underline;
+                }
+
+                input[type="checkbox"] {
+                    width: 2rem;
+                    height: 1.2rem;
+                }
+
+                label {
+                    font-size: 1.5rem;
+                }
+                
+                .options-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 2rem;
+                    gap: 0.5em;
+                    border: 1px solid black;
+                    padding: 1rem;
 
-                    h2 {
-                        text-align: center;
-                    }
-
-                    .settings {
+                    .chords-container {
                         display: flex;
                         flex-direction: row;
-                        justify-content: center;
-                        gap: 3rem;
+                        gap: 1.5rem;
 
-                        .major-options-container, .minor-options-container {
+                        .triad-container {
                             display: flex;
                             flex-direction: column;
+                            gap: 0.7rem;
+
+                            h4 {
+                                font-weight: normal;
+                                font-size: 1.5rem;
+                                padding-left: 0.3rem;
+                            }
 
                             .checkbox-container {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
 
                                 label {
-                                    font-size: 1.5rem;
+                                    user-select: none;
                                 }
                             }
                         }
-
-                        .resolved-unresolved {}
                     }
-
                     
                 }
 
-                .feedback {
-                    font-size: 4rem;
-                    text-align: center;
+                // .major-options-container {}
+
+                // .minor-options-container {}
+
+                // .mode-reminder {}
+
+                // .resolved-unresolved {}
+            }
+        }
+
+        .control-btns {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+
+            button {
+                align-self: center;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 1rem;
+                background-color: rgb(255, 101, 101);
+                color: rgb(255, 255, 255);
+                font-size: 1.5rem;
+    
+                &:hover {
+                    background-color: rgb(255, 173, 173);
                 }
+    
+                &:active {
+                    background-color: rgb(153, 153, 255);
+                }
+            }
 
-                .answer-buttons {
-                    margin: 2rem;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2rem;
+            // .replay-btn {}
 
+        }
 
-                    .major-answer-buttons, .minor-answer-buttons {
-                        display: flex;
-                        justify-content: space-between;
-                        button {
-                            font-size: 2rem;
-                            padding: 1rem;
-                        }
+        .answer-buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5rem;
+
+            div {
+
+                h4 {
+                    font-size: 2rem;
+                    font-weight: normal;
+                }
+    
+                button {
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 1rem;
+                    background-color: rgb(101, 157, 255);
+                    color: rgb(255, 255, 255);
+                    font-size: 1.5rem;
+    
+                    sup {
+                        font-size: 1rem;
+                    }
+    
+                    &:hover {
+                        background-color: rgb(162, 199, 255);
+                    }
+    
+                    &:active {
+                        background-color: rgb(153, 153, 255);
                     }
                 }
+    
+                .major-answer-buttons {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+    
+                    // h4 {}
+    
+                    // .ofV {}
+    
+                    // .ofIV {}
+    
+                    // .ofvi {}
+    
+                    // .ofii {}
+                }
+    
+                .minor-answer-buttons {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+    
+                    // h4 {}
+    
+                    // .ofIII {}
+    
+                    // .ofV {}
+    
+                    // .ofiv {}
+                    
+                    // .ofVI {}
+                }
+    
+                .chord-btns-container {
+                    display: flex;
+                    gap: 1rem;
 
-                
+                    .chord-btns {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+                }
             }
-            .random-chord {
-                font-size: 1.5rem;
-                padding: 2rem;
+        }
 
-            }
-
-            footer {}
+        .feedback {
+            font-size: 2rem;
+            align-self: center;
         }
     }
 }

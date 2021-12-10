@@ -1,110 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Secondary Dominants</title>
-    <link rel="stylesheet" href="src/css/style.min.css">
+    <link rel="stylesheet" href="src/css/style.min.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <header>
+      <!-- <header>
             <h1>Secondary Dominants</h1>
             <p>explanation about secondary dominants and this exercise</p>
             <p>instructions for how to operate the application</p>
-        </header>
-        <main>
-            <div class="questions">
-                <h2>Settings</h2>
-                <div class="settings">
-                    <div class="major-options-container">
-                        <h3>Major</h3>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="major-V7/V">
-                            <label for="major-V7/V">V<sup>7</sup>/V</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="major-V7/IV">
-                            <label for="major-V7/IV">V<sup>7</sup>/IV</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="major-V7/vi">
-                            <label for="major-V7/vi">V<sup>7</sup>/vi</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="major-V7/ii">
-                            <label for="major-V7/ii">V<sup>7</sup>/ii</label>
-                        </div>
-                        <!-- <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="major-V7/iii" data-file-path="">
-                            <label for="major-V7/iii">V7/iii</label>
-                        </div> -->
-                    </div>
-                    <div class="minor-options-container">
-                        <h3>Minor</h3>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="minor-V7/III">
-                            <label for="minor-V7/III">V<sup>7</sup>/III</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="minor-V7/V">
-                            <label for="minor-V7/V">V<sup>7</sup>/V</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="minor-V7/iv">
-                            <label for="minor-V7/iv">V<sup>7</sup>/iv</label>
-                        </div>
-                        <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="minor-V7/VI">
-                            <label for="minor-V7/VI">V<sup>7</sup>/VI</label>
-                        </div>
-                        <!-- <div class="checkbox-container">
-                            <input type="checkbox" name="" class="chord-option" id="minor-V7/VIII">
-                            <label for="minor-V7/VII">V7/VII</label>
-                        </div> -->
-                    </div>
-                    <div class="mode-reminder">
-                        <input type="checkbox" name="" id="mode" checked>
-                        <label for="mode">Show Mode</label>
-                    </div>
-                    <div class="resolved-unresolved">
-                        <input type="checkbox" name="" id="resolved">
-                        <label for="resolved">Resolved</label>
-                    </div>
+        </header> -->
+      <main>
+        <div class="questions">
+          <h2>Settings</h2>
+          <div class="settings">
+            <div class="options-container major-options-container">
+              <h3>Major</h3>
+              <div class="chords-container">
+                <div class="do-container triad-container">
+                  <h4>Do</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-I"
+                    />
+                    <label for="major-I">I</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-IV64"
+                    />
+                    <label for="major-IV64">IV<sup>64</sup></label>
+                  </div>
                 </div>
-                
+
+                <div class="re-container triad-container">
+                  <h4>Re</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-ii"
+                    />
+                    <label for="major-ii">ii</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-vii6"
+                    />
+                    <label for="major-vii6">viiº<sup>6</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-V64"
+                    />
+                    <label for="major-V64">V<sup>64</sup></label>
+                  </div>
+                </div>
+
+                <div class="mi-container triad-container">
+                  <h4>Mi</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-iii"
+                    />
+                    <label for="major-iii">iii</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-I6"
+                    />
+                    <label for="major-I6">I<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="fa-container triad-container">
+                  <h4>Fa</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-IV"
+                      checked
+                    />
+                    <label for="major-IV">IV</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-ii6"
+                      checked
+                    />
+                    <label for="major-ii6">ii<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="sol-container triad-container">
+                  <h4>Sol</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-V"
+                      checked
+                    />
+                    <label for="major-V">V</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-V7"
+                      checked
+                    />
+                    <label for="major-V7">V<sup>7</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-I64"
+                      checked
+                    />
+                    <label for="major-I64">I<sup>64</sup></label>
+                  </div>
+                </div>
+
+                <div class="la-container triad-container">
+                  <h4>La</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-vi"
+                    />
+                    <label for="major-vi">vi</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-IV6"
+                    />
+                    <label for="major-IV6">IV<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="ti-container triad-container">
+                  <h4>Ti</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-V6"
+                    />
+                    <label for="major-V6">V<sup>6</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="major-V65"
+                    />
+                    <label for="major-V65">V<sup>65</sup></label>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="feedback"></div>
-            <div class="answer-buttons">
-                <div class="major-answer-buttons">
-                    <h4>Major:</h4>
-                    <button class="ofV">V<sup>7</sup>/V</button>
-                    <button class="ofIV">V<sup>7</sup>/IV</button>
-                    <button class="ofvi">V<sup>7</sup>/vi</button>
-                    <button class="ofii">V<sup>7</sup>/ii</button>
-                    <!-- <button class="ofiii">V<sup>7</sup>/iii</button> -->
+            <div class="options-container minor-options-container">
+              <h3>Minor</h3>
+              <div class="chords-container">
+                <div class="do-container triad-container">
+                  <h4>Do</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-i"
+                    />
+                    <label for="minor-i">i</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-iv64"
+                    />
+                    <label for="minor-iv64">iv<sup>64</sup></label>
+                  </div>
                 </div>
-                <!-- <div class="major-audio-container">
-                    <audio src="audio/ofV.mp3" class="ofV"></audio>
-                    <audio src="audio/ofIV.mp3" class="ofIV"></audio>
-                    <audio src="audio/ofvi.mp3" class="ofvi"></audio>
-                    <audio src="audio/ofii.mp3" class="ofii"></audio>
-                    <audio src="audio/ofiii.mp3" class="ofiii"></audio>
-                </div> -->
-                <div class="minor-answer-buttons">
-                    <h4>Minor:</h4>
-                    <button class="ofIII">V<sup>7</sup>/III</button>
-                    <button class="ofV">V<sup>7</sup>/V</button>
-                    <button class="ofiv">V<sup>7</sup>/iv</button>
-                    <button class="ofVI">V<sup>7</sup>/VI</button>
-                    <!-- <button class="ofVII">V<sup>7</sup>/VII</button> -->
+
+                <div class="re-container triad-container">
+                  <h4>Re</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-ii"
+                    />
+                    <label for="minor-ii">iiº</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-vii6"
+                    />
+                    <label for="minor-vii6">viiº<sup>6</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-V64"
+                    />
+                    <label for="minor-V64">V<sup>64</sup></label>
+                  </div>
                 </div>
+
+                <div class="me-container triad-container">
+                  <h4>Me</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-III"
+                    />
+                    <label for="minor-III">III</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-i6"
+                    />
+                    <label for="minor-i6">i<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="fa-container triad-container">
+                  <h4>Fa</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-iv"
+                      checked
+                    />
+                    <label for="minor-iv">iv</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-ii6"
+                      checked
+                    />
+                    <label for="minor-ii6">iiº<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="sol-container triad-container">
+                  <h4>Sol</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-V"
+                      checked
+                    />
+                    <label for="minor-V">V</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-V7"
+                      checked
+                    />
+                    <label for="minor-V7">V<sup>7</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-i64"
+                      checked
+                    />
+                    <label for="minor-i64">i<sup>64</sup></label>
+                  </div>
+                </div>
+
+                <div class="le-container triad-container">
+                  <h4>Le</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-VI"
+                    />
+                    <label for="minor-VI">VI</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-iv6"
+                    />
+                    <label for="minor-iv6">iv<sup>6</sup></label>
+                  </div>
+                </div>
+
+                <div class="ti-container triad-container">
+                  <h4>Ti</h4>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-V6"
+                    />
+                    <label for="minor-V6">V<sup>6</sup></label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name=""
+                      class="chord-option"
+                      id="minor-V65"
+                    />
+                    <label for="minor-V65">V<sup>65</sup></label>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <button class="random-chord">Click to hear a random chord</button>
-        </main>
-        <footer></footer>
+
+            <div class="key">
+              <label for="key">Key: </label>
+              <select name="key" id="key">
+                <option value="random">random</option>
+                <option value="A">A</option>
+                <option value="Ab">Ab</option>
+                <option value="B">B</option>
+                <option value="Bb">Bb</option>
+                <option value="C" selected>C</option>
+                <option value="Db">Db</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="Eb">Eb</option>
+                <option value="F">F</option>
+                <option value="Gb">Gb</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="control-btns">
+          <button class="random-chord-btn">Click to hear a random chord</button>
+          <button class="replay-btn">Hear Again</button>
+        </div>
+        <div class="answer-buttons">
+          <div class="major-answer-buttons">
+            <h4>Major:</h4>
+            <div class="chord-btns-container">
+              <div class="chord-btns">
+                <button class="major-I">I</button>
+                <button class="major-IV64">IV<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-ii">ii</button>
+                <button class="major-vii6">viiº<sup>6</sup></button>
+                <button class="major-V64">V<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-iii">iii</button>
+                <button class="major-I6">I<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-IV">IV</button>
+                <button class="major-ii6">ii<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-V">V</button>
+                <button class="major-V7">V<sup>7</sup></button>
+                <button class="major-I64">I<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-vi">vi</button>
+                <button class="major-IV6">IV<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="major-V6">V<sup>6</sup></button>
+                <button class="major-V65">V<sup>65</sup></button>
+              </div>
+            </div>
+          </div>
+          <div class="minor-answer-buttons">
+            <h4>Minor:</h4>
+            <div class="chord-btns-container">
+              <div class="chord-btns">
+                <button class="minor-i">i</button>
+                <button class="minor-iv64">iv<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-ii">iiº</button>
+                <button class="minor-vii6">viiº<sup>6</sup></button>
+                <button class="minor-V64">V<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-III">III</button>
+                <button class="minor-i6">i<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-iv">iv</button>
+                <button class="minor-ii6">iiº<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-V">V</button>
+                <button class="minor-V7">V<sup>7</sup></button>
+                <button class="minor-i64">i<sup>64</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-VI">VI</button>
+                <button class="minor-iv6">iv<sup>6</sup></button>
+              </div>
+              <div class="chord-btns">
+                <button class="minor-V6">V<sup>6</sup></button>
+                <button class="minor-V65">V<sup>65</sup></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feedback"></div>
+      </main>
     </div>
-</body>
+  </body>
 </html>
